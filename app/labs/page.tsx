@@ -4,7 +4,15 @@ export default function Labs() {
   return (
     <div id="wd-labs">
       <h1>Labs</h1>
+      <h2>London Jones</h2>
+      <h2>CS4550</h2>
+      <h2>Section 02</h2>
       <ul>
+      <li>
+          <Link href="https://github.com/londonjones4189/kambaz-next-js" id="wd-github-link">
+            My Github
+          </Link>
+        </li>
         <li>
           <Link href="/labs/lab1" id="wd-lab1-link">
             Lab 1: HTML Examples
