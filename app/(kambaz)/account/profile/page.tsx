@@ -1,5 +1,4 @@
 import Link from "next/link";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Form} from "react-bootstrap";
 
 export default function Profile() {

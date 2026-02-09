@@ -21,17 +21,17 @@ export default function KambazNavigation() {
         <img src="/images/NEU.png" width="75px" alt="Northeastern University" />
       </ListGroupItem>
       
-      <ListGroupItem className="wd-navigation-category border-0 bg-white text-center">
-        <Link href="/account" id="wd-account-link" className="text-danger text-decoration-none">
-          <FaRegCircleUser className="wd-navigation-icon fs-1" />
+      <ListGroupItem className="wd-navigation-category border-0 bg-black text-center">
+        <Link href="/account" id="wd-account-link" className="text-white text-decoration-none">
+          <FaRegCircleUser className="wd-navigation-icon fs-1 text-white" />
           <br />
           Account
         </Link>
       </ListGroupItem>
       
-      <ListGroupItem className="wd-navigation-category border-0 bg-black text-center">
-        <Link href="/dashboard" id="wd-dashboard-link" className="text-white text-decoration-none">
-          <AiOutlineDashboard className="wd-navigation-icon fs-1" />
+      <ListGroupItem className="wd-navigation-category border-0 bg-white text-center">
+        <Link href="/dashboard" id="wd-dashboard-link" className="text-danger text-decoration-none">
+          <AiOutlineDashboard className="wd-navigation-icon text-danger fs-1" />
           <br />
           Dashboard
         </Link>
