@@ -1,0 +1,139 @@
+body   {
+  margin: 0;
+  padding: 0;
+}
+
+body * {
+  font-family: Arial,
+  Helvetica, sans-serif;
+}
+
+@media (min-width: 768px) {
+  #wd-kambaz .wd-main-content-offset {
+    padding-left: 140px !important;
+  }
+}
+
+#wd-kambaz-navigation {
+  width: 110px;
+  background-color: black;
+}
+
+#wd-kambaz-navigation .wd-navigation-category {
+  background-color: black;
+  border: 0;
+  text-align: center;
+  padding: 10px 0;
+}
+
+#wd-kambaz-navigation .wd-navigation-category a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+#wd-kambaz-navigation .wd-navigation-category .wd-navigation-icon {
+  font-size: 2rem;
+  color: red;
+}
+
+#wd-account-link .wd-navigation-icon {
+  color: white !important;
+}
+
+#wd-kambaz-navigation .wd-navigation-category.active,
+#wd-kambaz-navigation .wd-navigation-category.bg-white {
+  background-color: white !important;
+}
+
+#wd-kambaz-navigation .wd-navigation-category.active a,
+#wd-kambaz-navigation .wd-navigation-category.bg-white a {
+  color: red;
+}
+
+#wd-kambaz-navigation .wd-navigation-category.active .wd-navigation-icon,
+#wd-kambaz-navigation .wd-navigation-category.bg-white .wd-navigation-icon {
+  color: red !important;
+}
+
+#wd-kambaz-navigation .wd-navigation-category.bg-black a {
+  color: white;
+}
+
+#wd-neu-link {
+  background-color: black;
+}
+
+.wd-main-content-offset {
+  margin-left: 110px;
+}
+
+@media (max-width: 767px) {
+  .wd-main-content-offset {
+    margin-left: 0;
+  }
+}
+
+#wd-dashboard {
+  margin-left: 30px;
+}
+
+#wd-dashboard-classes .wd-dashboard-class {
+  width: 300px;
+}
+
+.wd-dashboard-class-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.wd-dashboard-class-description {
+  overflow: hidden;
+  height: 100px;
+}
+
+
+#wd-courses-navigation {
+  width: 120px;
+}
+
+#wd-courses-navigation .list-group-item {
+  background-color: white;
+  border-left: 3px solid transparent;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+#wd-courses-navigation .list-group-item.active {
+  background-color: white;
+  border-left-color: black;
+  color: black;
+  font-weight: bold;
+}
+
+#wd-courses-navigation .list-group-item:hover {
+  background-color: #f8f9fa;
+}
+.list-group.wd > .list-group-item.active {
+  color: black;
+  background-color: white;
+  border-left: 3px solid black !important;
+}
+
+
+.btn-secondary {
+  --bs-btn-color: #000 !important;
+  --bs-btn-bg: #c7cdd1 !important;
+  --bs-btn-border-color: #c7cdd1 !important;
+  --bs-btn-hover-color: #fff !important;
+}
+.bg-secondary {
+  --bs-secondary-rgb: 199, 205, 209;
+}
+.list-group-item {
+  --bs-list-group-border-color: gray;
+}
+.wd-lesson {
+  border-left: 3px solid green !important;
+}
