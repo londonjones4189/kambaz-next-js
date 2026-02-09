@@ -9,13 +9,11 @@ import LessonControlButtons from "./LessonControlButtons";
 export default function Modules() {
   return (
     <div>
-      {/* TOP MODULE CONTROLS */}
       <ModulesControls />
       <br />
       <br />
 
       <ul id="wd-modules" className="list-group rounded-0">
-        {/* ========== WEEK 1 ========== */}
         <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
           <div className="wd-title p-3 ps-2 bg-light">
             <BsGripVertical className="me-2 fs-3" />
@@ -55,8 +53,6 @@ export default function Modules() {
             </li>
           </ul>
         </li>
-
-        {/* ========== WEEK 2 ========== */}
         <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
           <div className="wd-title p-3 ps-2 bg-light">
             <BsGripVertical className="me-2 fs-3" />
