@@ -1,3 +1,7 @@
+"use client";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import * as db from "../../../../database";
 import Card from "react-bootstrap/Card";
 import {
   Button,
@@ -11,40 +15,34 @@ import {
 } from "react-bootstrap";
 
 export default function AssignmentEditor() {
+  const { cid, aid } = useParams();
+  const assignment = db.assignments.find(
+    (a: any) => a.course === cid && a._id === aid
+  );
+
   return (
     <div id="wd-assignments-editor" className="p-4">
       <div className="mb-3">
         <FormLabel>Assignment Name</FormLabel>
-        <FormControl defaultValue="A1" />
+        <FormControl defaultValue={assignment?.title} />
       </div>
-      
       <div className="mb-4">
         <FormControl
           as="textarea"
           rows={8}
           className="text-danger"
-          defaultValue={`The assignment is available online
-Submit a link to the landing page of your Web application running on
-Netlify.
-The landing page should include the following:
-- Your full name and section
-- Links to each of the lab assignments
-- Link to the Kanbas application
-- Links to all relevant source code repositories
-The Kanbas application should include a link to navigate back to the landing page`}
+          defaultValue={assignment?.description}
         />
       </div>
-      
       <Form>
         <Row className="mb-3">
           <Col md={3} className="text-end">
             <FormLabel>Points</FormLabel>
           </Col>
           <Col md={9}>
-            <FormControl type="number" defaultValue={100} />
+            <FormControl type="number" defaultValue={assignment?.points} />
           </Col>
         </Row>
-        
         <Row className="mb-3">
           <Col md={3} className="text-end">
             <FormLabel>Assignment Group</FormLabel>
@@ -58,7 +56,6 @@ The Kanbas application should include a link to navigate back to the landing pag
             </Form.Select>
           </Col>
         </Row>
-        
         <Row className="mb-3">
           <Col md={3} className="text-end">
             <FormLabel>Display Grade as</FormLabel>
@@ -70,7 +67,6 @@ The Kanbas application should include a link to navigate back to the landing pag
             </Form.Select>
           </Col>
         </Row>
-        
         <Row className="mb-3">
           <Col md={3} className="text-end">
             <FormLabel>Submission Type</FormLabel>
@@ -82,9 +78,7 @@ The Kanbas application should include a link to navigate back to the landing pag
             </Form.Select>
             <Card>
               <CardBody>
-                <FormLabel className="fw-bold">
-                  Online Entry Options
-                </FormLabel>
+                <FormLabel className="fw-bold">Online Entry Options</FormLabel>
                 <FormCheck label="Text Entry" />
                 <FormCheck label="Website URL" />
                 <FormCheck label="Media Recordings" />
@@ -94,7 +88,6 @@ The Kanbas application should include a link to navigate back to the landing pag
             </Card>
           </Col>
         </Row>
-        
         <Row className="mb-3">
           <Col md={3} className="text-end">
             <FormLabel className="fw-bold">Assign</FormLabel>
@@ -103,46 +96,39 @@ The Kanbas application should include a link to navigate back to the landing pag
             <FormControl defaultValue="Everyone" />
           </Col>
         </Row>
-        
         <Row className="mb-3">
           <Col md={3} className="text-end">
             <FormLabel className="fw-bold">Due</FormLabel>
           </Col>
           <Col md={9}>
-            <FormControl type="date" defaultValue="2024-05-13" />
+            <FormControl type="date" defaultValue={assignment?.dueDate} />
           </Col>
         </Row>
-        
         <Row className="mb-3">
           <Col md={3} className="text-end">
             <FormLabel className="fw-bold">Available from</FormLabel>
           </Col>
           <Col md={9}>
-            <FormControl type="date" defaultValue="2024-05-06" />
+            <FormControl type="date" defaultValue={assignment?.availableFrom} />
           </Col>
         </Row>
-        
         <Row className="mb-4">
           <Col md={3} className="text-end">
             <FormLabel className="fw-bold">Until</FormLabel>
           </Col>
           <Col md={9}>
-            <FormControl type="date" defaultValue="2024-05-20" />
+            <FormControl type="date" defaultValue={assignment?.until} />
           </Col>
         </Row>
       </Form>
-      
       <hr />
       <div className="float-end">
-        <Button
-          className="me-2"
-          variant="light"
-        >
+        <Link href={`/courses/${cid}/assignments`} className="btn btn-light me-2">
           Cancel
-        </Button>
-        <Button variant="danger">
+        </Link>
+        <Link href={`/courses/${cid}/assignments`} className="btn btn-danger">
           Save
-        </Button>
+        </Link>
       </div>
     </div>
   );
