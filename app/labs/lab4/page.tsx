@@ -13,6 +13,10 @@ import Link from "next/dist/client/link";
 import store from "./store"; 
 import { Provider } from "react-redux";
 import ReduxExamples from "./redux/page";
+import { Suspense } from "react";
+import UrlEncoding from "./url-ending/query-params";
+import PathCalculator from "./url-ending/path-params/[a]/[b]/page";
+import QueryCalculator from "./url-ending/query-params/page";
 
 
 export default function Lab4() {
@@ -36,9 +40,13 @@ export default function Lab4() {
         <ObjectStateVariable/>
         <ArrayStateVariable/>
         <ParentStateComponent/>
+        <Suspense fallback={<div>Loading...</div>}>
+          <QueryCalculator/>
+          <PathCalculator/>
+          <UrlEncoding/>
+        </Suspense>
        </div>
          </Provider>
   );
 }
 
-       
