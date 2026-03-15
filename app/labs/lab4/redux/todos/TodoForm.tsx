@@ -1,24 +1,22 @@
-
-import React from "react";
+"use client"
+import { ListGroupItem, Button, FormControl } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { addTodo, updateTodo, setTodo } from "./todosReducer";
 import { RootState } from "../../store";
-import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
-import Button from "react-bootstrap/esm/Button";
-import FormControl from "react-bootstrap/esm/FormControl";
 
-export default function TodoItem() {
-const { todo } = useSelector((state: RootState) => state.todosReducer);
+export default function TodoForm() {
+  const { todo } = useSelector((state: RootState) => state.todosReducer);
   const dispatch = useDispatch();
   return (
-    <ListGroupItem>
-      <Button onClick={() => dispatch(addTodo(todo))}
-              id="wd-add-todo-click"> Add </Button>
-      <Button onClick={() => dispatch(updateTodo(todo))}
-              id="wd-update-todo-click"> Update </Button>
-      <FormControl
-        defaultValue={todo.title}
-        onChange={(e) => dispatch(setTodo({ ...todo, title: e.target.value }))}/>
+    <ListGroupItem className="d-flex align-items-center">
+      <FormControl value={todo.title}
+        onChange={(e) => dispatch(setTodo({ ...todo, title: e.target.value }))} />
+      <div className="ms-2 gap-3 d-flex">
+        <Button onClick={() => dispatch(updateTodo(todo))}
+          id="wd-update-todo-click" className="btn btn-warning">Update</Button>
+        <Button onClick={() => dispatch(addTodo(todo))}
+          id="wd-add-todo-click" className="btn btn-success">Add</Button>
+      </div>
     </ListGroupItem>
-);
+  );
 }

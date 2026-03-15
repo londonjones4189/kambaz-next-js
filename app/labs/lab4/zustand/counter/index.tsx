@@ -1,5 +1,6 @@
+
 "use client";
-import { useCounterStore } from "./useCounterStore";
+import { useCounterStore } from "./store";
 
 
 export default function ZustandCounter() {
