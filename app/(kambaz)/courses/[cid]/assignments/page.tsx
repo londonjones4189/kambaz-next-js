@@ -1,18 +1,27 @@
 "use client";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { BsGripVertical, BsPlus } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAssignment } from "./reducer";
+import { BsGripVertical, BsPlus, BsTrash3Fill } from "react-icons/bs";
 import { IoEllipsisVertical } from "react-icons/io5";
 import { FaCaretDown, FaCheckCircle } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
-import * as db from "../../../database";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments.filter(
-    (assignment: any) => assignment.course === cid
+  const dispatch = useDispatch();
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const courseAssignments = assignments.filter(
+    (a: any) => a.course === cid
   );
+
+  const handleDelete = (aid: string, title: string) => {
+    if (window.confirm(`Are you sure you want to remove "${title}"?`)) {
+      dispatch(deleteAssignment(aid));
+    }
+  };
 
   return (
     <div id="wd-assignments" className="p-3">
@@ -28,12 +37,19 @@ export default function Assignments() {
           />
         </div>
         <div className="float-end">
-          <button id="wd-add-assignment-group" className="btn btn-outline-secondary me-2">
+          <button
+            id="wd-add-assignment-group"
+            className="btn btn-outline-secondary me-2"
+          >
             <BsPlus className="fs-5" /> Group
           </button>
-          <button id="wd-add-assignment" className="btn btn-danger">
+          <Link
+            href={`/courses/${cid}/assignments/new`}
+            id="wd-add-assignment"
+            className="btn btn-danger"
+          >
             <BsPlus className="fs-5" /> Assignment
-          </button>
+          </Link>
         </div>
         <div className="clearfix"></div>
       </div>
@@ -56,12 +72,12 @@ export default function Assignments() {
           </div>
 
           <ul className="list-group list-group-flush">
-            {assignments.map((assignment: any) => (
+            {courseAssignments.map((assignment: any) => (
               <li
                 key={assignment._id}
-                className="wd-assignment-list-item list-group-item p-3 ps-0 d-flex"
+                className="wd-assignment-list-item list-group-item p-3 ps-0 d-flex align-items-center"
               >
-                <div className="bg-success" style={{ width: "5px" }}></div>
+                <div className="bg-success" style={{ width: "5px", alignSelf: "stretch" }} />
                 <div className="d-flex align-items-start flex-grow-1 ps-3">
                   <BsGripVertical className="me-2 mt-1" />
                   <HiOutlineDocumentText className="me-3 mt-1 fs-4 text-success" />
@@ -82,7 +98,12 @@ export default function Assignments() {
                       <strong>Due</strong> {assignment.dueDate} | {assignment.points} pts
                     </div>
                   </div>
-                  <FaCheckCircle className="text-success me-2" />
+                  <FaCheckCircle className="text-success me-2 mt-1" />
+                  <BsTrash3Fill
+                    className="text-danger me-2 mt-1 fs-5"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleDelete(assignment._id, assignment.title)}
+                  />
                   <IoEllipsisVertical />
                 </div>
               </li>

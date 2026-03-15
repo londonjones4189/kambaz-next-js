@@ -1,37 +1,68 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import * as db from "../../../../database";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addAssignment, updateAssignment } from "../reducer";
 import Card from "react-bootstrap/Card";
 import {
-  Button,
-  Row,
-  Col,
-  FormLabel,
-  FormControl,
-  FormCheck,
-  Form,
-  CardBody
+  Button, Row, Col, FormLabel, FormControl,
+  FormCheck, Form, CardBody,
 } from "react-bootstrap";
 
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
-  const assignment = db.assignments.find(
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+
+  const existing = assignments.find(
     (a: any) => a.course === cid && a._id === aid
   );
+
+  const [assignment, setAssignment] = useState<any>(
+    existing ?? {
+      _id: String(Date.now()),
+      course: cid,
+      title: "New Assignment",
+      description: "New Assignment Description",
+      points: 100,
+      dueDate: "",
+      availableFrom: "",
+      availableUntil: "",
+    }
+  );
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { id, value } = e.target;
+    setAssignment((prev: any) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = () => {
+    if (existing) {
+      dispatch(updateAssignment(assignment));
+    } else {
+      dispatch(addAssignment({ ...assignment, course: cid }));
+    }
+    router.push(`/courses/${cid}/assignments`);
+  };
 
   return (
     <div id="wd-assignments-editor" className="p-4">
       <div className="mb-3">
         <FormLabel>Assignment Name</FormLabel>
-        <FormControl defaultValue={assignment?.title} />
+        <FormControl id="title" value={assignment.title} onChange={handleChange} />
       </div>
       <div className="mb-4">
         <FormControl
+          id="description"
           as="textarea"
           rows={8}
           className="text-danger"
-          defaultValue={assignment?.description}
+          value={assignment.description}
+          onChange={handleChange}
         />
       </div>
       <Form>
@@ -40,7 +71,7 @@ export default function AssignmentEditor() {
             <FormLabel>Points</FormLabel>
           </Col>
           <Col md={9}>
-            <FormControl type="number" defaultValue={assignment?.points} />
+            <FormControl id="points" type="number" value={assignment.points} onChange={handleChange} />
           </Col>
         </Row>
         <Row className="mb-3">
@@ -101,7 +132,7 @@ export default function AssignmentEditor() {
             <FormLabel className="fw-bold">Due</FormLabel>
           </Col>
           <Col md={9}>
-            <FormControl type="date" defaultValue={assignment?.dueDate} />
+            <FormControl id="dueDate" type="date" value={assignment.dueDate} onChange={handleChange} />
           </Col>
         </Row>
         <Row className="mb-3">
@@ -109,7 +140,7 @@ export default function AssignmentEditor() {
             <FormLabel className="fw-bold">Available from</FormLabel>
           </Col>
           <Col md={9}>
-            <FormControl type="date" defaultValue={assignment?.availableFrom} />
+            <FormControl id="availableFrom" type="date" value={assignment.availableFrom} onChange={handleChange} />
           </Col>
         </Row>
         <Row className="mb-4">
@@ -117,7 +148,7 @@ export default function AssignmentEditor() {
             <FormLabel className="fw-bold">Until</FormLabel>
           </Col>
           <Col md={9}>
-            <FormControl type="date" defaultValue={assignment?.until} />
+            <FormControl id="availableUntil" type="date" value={assignment.availableUntil} onChange={handleChange} />
           </Col>
         </Row>
       </Form>
@@ -126,9 +157,9 @@ export default function AssignmentEditor() {
         <Link href={`/courses/${cid}/assignments`} className="btn btn-light me-2">
           Cancel
         </Link>
-        <Link href={`/courses/${cid}/assignments`} className="btn btn-danger">
+        <Button variant="danger" onClick={handleSubmit}>
           Save
-        </Link>
+        </Button>
       </div>
     </div>
   );

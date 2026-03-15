@@ -1,14 +1,16 @@
 "use client";
-
 import React from "react";
 import { useParams } from "next/navigation";
 import * as db from "../../../../database";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../store";
 import { Table } from "react-bootstrap";
 import { FaUserCircle } from "react-icons/fa";
 
 export default function PeopleTable() {
   const { cid } = useParams();
-  const { users, enrollments } = db;
+  const { users } = db;
+  const { enrollments } = useSelector((state: RootState) => state.enrollmentReducer);
 
   return (
     <div id="wd-people-table">
@@ -23,7 +25,6 @@ export default function PeopleTable() {
             <th>Total Activity</th>
           </tr>
         </thead>
-
         <tbody>
           {users
             .filter((usr: any) =>
@@ -37,22 +38,14 @@ export default function PeopleTable() {
               <tr key={user._id}>
                 <td className="wd-full-name text-nowrap">
                   <FaUserCircle className="me-2 fs-1 text-secondary" />
-                  <span className="wd-first-name">
-                    {user.firstName}
-                  </span>{" "}
-                  <span className="wd-last-name">
-                    {user.lastName}
-                  </span>
+                  <span className="wd-first-name">{user.firstName}</span>{" "}
+                  <span className="wd-last-name">{user.lastName}</span>
                 </td>
                 <td className="wd-login-id">{user.loginId}</td>
                 <td className="wd-section">{user.section}</td>
                 <td className="wd-role">{user.role}</td>
-                <td className="wd-last-activity">
-                  {user.lastActivity}
-                </td>
-                <td className="wd-total-activity">
-                  {user.totalActivity}
-                </td>
+                <td className="wd-last-activity">{user.lastActivity}</td>
+                <td className="wd-total-activity">{user.totalActivity}</td>
               </tr>
             ))}
         </tbody>
