@@ -1,9 +1,10 @@
+"use client";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { add } from "./addReducer";
 import { RootState } from "../../store";
-import FormControl from "react-bootstrap/esm/FormControl";
-import Button from "react-bootstrap/esm/Button";
+import { FormControl, Button } from "react-bootstrap";
+
 export default function AddRedux() {
   const [a, setA] = useState(12);
   const [b, setB] = useState(23);
@@ -25,4 +26,3 @@ export default function AddRedux() {
     </div>
   );
 }
-
