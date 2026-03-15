@@ -4,7 +4,6 @@ import { useTodoStore } from "./useTodoStore";
 
 export default function ZustandTodoList() {
   const { todos, todo, setTodo, addTodo, deleteTodo, updateTodo } = useTodoStore();
-
   return (
     <div id="wd-zustand-todo-list">
       <h2>Zustand Todo List</h2>

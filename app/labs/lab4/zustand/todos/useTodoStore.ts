@@ -1,10 +1,8 @@
 import { create } from "zustand";
-
 interface Todo {
   id: string;
   title: string;
 }
-
 interface TodoState {
   todos: Todo[];
   todo: Todo;
@@ -13,16 +11,11 @@ interface TodoState {
   updateTodo: () => void;
   deleteTodo: (id: string) => void;
 }
-
 export const useTodoStore = create<TodoState>((set, get) => ({
-  todos: [
-    { id: "1", title: "Learn React" },
-    { id: "2", title: "Learn node" },
-  ],
+  todos: [{ id: "1", title: "Learn React" }, { id: "2", title: "Learn node" },],
   todo: { id: "-1", title: "Learn Mongo" },
 
   setTodo: (todo) => set({ todo }),
-
   addTodo: () => {
     const { todos, todo } = get();
     set({
@@ -30,7 +23,6 @@ export const useTodoStore = create<TodoState>((set, get) => ({
       todo: { id: "-1", title: "" },
     });
   },
-
   updateTodo: () => {
     const { todos, todo } = get();
     set({
@@ -38,7 +30,6 @@ export const useTodoStore = create<TodoState>((set, get) => ({
       todo: { id: "-1", title: "" },
     });
   },
-
   deleteTodo: (id) =>
     set((state) => ({ todos: state.todos.filter((t) => t.id !== id) })),
 }));
