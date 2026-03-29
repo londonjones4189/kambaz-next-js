@@ -1,9 +1,10 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { addAssignment, updateAssignment } from "../reducer";
+import * as client from "../client";
 import Card from "react-bootstrap/Card";
 import {
   Button, Row, Col, FormLabel, FormControl,
@@ -14,24 +15,29 @@ export default function AssignmentEditor() {
   const { cid, aid } = useParams();
   const router = useRouter();
   const dispatch = useDispatch();
-  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
 
-  const existing = assignments.find(
-    (a: any) => a.course === cid && a._id === aid
-  );
+  const isNew = aid === "new";
 
-  const [assignment, setAssignment] = useState<any>(
-    existing ?? {
-      _id: String(Date.now()),
-      course: cid,
-      title: "New Assignment",
-      description: "New Assignment Description",
-      points: 100,
-      dueDate: "",
-      availableFrom: "",
-      availableUntil: "",
+  const [assignment, setAssignment] = useState<any>({
+    course: cid,
+    title: "New Assignment",
+    description: "New Assignment Description",
+    points: 100,
+    dueDate: "",
+    availableFrom: "",
+    availableUntil: "",
+  });
+
+  const fetchAssignment = async () => {
+    if (!isNew) {
+      const data = await client.findAssignmentById(aid as string);
+      setAssignment(data);
     }
-  );
+  };
+
+  useEffect(() => {
+    fetchAssignment();
+  }, [aid]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -40,11 +46,13 @@ export default function AssignmentEditor() {
     setAssignment((prev: any) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = () => {
-    if (existing) {
-      dispatch(updateAssignment(assignment));
+  const handleSubmit = async () => {
+    if (isNew) {
+      const newAssignment = await client.createAssignmentForCourse(cid as string, assignment);
+      dispatch(addAssignment(newAssignment));
     } else {
-      dispatch(addAssignment({ ...assignment, course: cid }));
+      const updated = await client.updateAssignment(assignment);
+      dispatch(updateAssignment(updated));
     }
     router.push(`/courses/${cid}/assignments`);
   };

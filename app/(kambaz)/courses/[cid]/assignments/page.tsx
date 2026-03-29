@@ -1,8 +1,10 @@
 "use client";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAssignment } from "./reducer";
+import { deleteAssignment, setAssignments } from "./reducer";
+import * as client from "./client";
 import { BsGripVertical, BsPlus, BsTrash3Fill } from "react-icons/bs";
 import { IoEllipsisVertical } from "react-icons/io5";
 import { FaCaretDown, FaCheckCircle } from "react-icons/fa";
@@ -13,15 +15,22 @@ export default function Assignments() {
   const { cid } = useParams();
   const dispatch = useDispatch();
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
-  const courseAssignments = assignments.filter(
-    (a: any) => a.course === cid
-  );
 
-  const handleDelete = (aid: string, title: string) => {
+  const fetchAssignments = async () => {
+    const data = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(data));
+  };
+
+  const handleDelete = async (aid: string, title: string) => {
     if (window.confirm(`Are you sure you want to remove "${title}"?`)) {
+      await client.deleteAssignment(aid);
       dispatch(deleteAssignment(aid));
     }
   };
+
+  useEffect(() => {
+    fetchAssignments();
+  }, [cid]);
 
   return (
     <div id="wd-assignments" className="p-3">
@@ -72,7 +81,7 @@ export default function Assignments() {
           </div>
 
           <ul className="list-group list-group-flush">
-            {courseAssignments.map((assignment: any) => (
+            {assignments.map((assignment: any) => (
               <li
                 key={assignment._id}
                 className="wd-assignment-list-item list-group-item p-3 ps-0 d-flex align-items-center"
