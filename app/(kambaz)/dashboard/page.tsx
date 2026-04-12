@@ -6,7 +6,7 @@ import { addNewCourse, deleteCourse, updateCourse, setCourses } from "../courses
 import { setEnrollments } from "../enrollmentreducer";
 import { RootState } from "../store";
 import * as client from "../courses/client";
-import * as enrollmentsClient from "../client";
+import * as enrollmentsClient from "../courses/client";
 import {
   Row, Col, Card, CardImg, CardBody,
   CardTitle, CardText, Button, FormControl,
@@ -84,16 +84,16 @@ export default function Dashboard() {
   };
 
   const onEnroll = async (courseId: string) => {
-    const enrollment = await enrollmentsClient.enrollUserInCourse(currentUser._id, courseId);
-    dispatch(setEnrollments([...enrollments, enrollment]));
-  };
+  const enrollment = await enrollmentsClient.enrollIntoCourse(currentUser._id, courseId);
+  dispatch(setEnrollments([...enrollments, enrollment]));
+};
 
-  const onUnenroll = async (courseId: string) => {
-    await enrollmentsClient.unenrollUserFromCourse(currentUser._id, courseId);
-    dispatch(setEnrollments(
-      enrollments.filter((e: any) => !(e.user === currentUser._id && e.course === courseId))
-    ));
-  };
+const onUnenroll = async (courseId: string) => {
+  await enrollmentsClient.unenrollFromCourse(currentUser._id, courseId);
+  dispatch(setEnrollments(
+    enrollments.filter((e: any) => !(e.user === currentUser._id && e.course === courseId))
+  ));
+};
 
   return (
     <div id="wd-dashboard">
@@ -155,7 +155,7 @@ export default function Dashboard() {
             return (
               <Col key={c._id} className="wd-dashboard-course" style={{ width: "300px" }}>
                 <Card>
-                  <CardImg src={c.image} variant="top" width="100%" height={160} />
+                  <CardImg src={"/images/reactjs.jpg"} variant="top" width="100%" height={160} />
                   <CardBody>
                     <CardTitle className="wd-dashboard-course-title text-nowrap overflow-hidden">
                       {c.name}
