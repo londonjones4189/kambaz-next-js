@@ -1,235 +1,632 @@
 [
   {
     "_id": "M101",
-    "name": "React Fundamentals",
-    "description": "Core concepts of building applications using React.",
-    "course": "CS101",
+    "name": "Foundations of Mathematics",
+    "description": "Core principles of mathematical reasoning and proof.",
+    "course": "RS101",
     "lessons": [
       {
         "_id": "L101",
-        "name": "JSX and Components",
-        "description": "Introduction to JSX syntax and reusable components.",
+        "name": "Logic and Proofs",
+        "description": "Introduction to formal logic and proof techniques.",
         "module": "M101"
       },
       {
         "_id": "L102",
-        "name": "Props and State",
-        "description": "Understanding how props and state manage data in React.",
+        "name": "Algebraic Structures",
+        "description": "Exploring groups, rings, and fields.",
         "module": "M101"
       },
       {
         "_id": "L103",
-        "name": "Event Handling",
-        "description": "Handling user interactions and events in React.",
+        "name": "Number Theory Basics",
+        "description": "Properties of integers and prime numbers.",
         "module": "M101"
       }
     ]
   },
   {
     "_id": "M102",
-    "name": "React Hooks",
-    "description": "Using modern React features for state and side effects.",
-    "course": "CS101",
+    "name": "Calculus and Analysis",
+    "description": "Differential and integral calculus concepts.",
+    "course": "RS101",
     "lessons": [
       {
         "_id": "L201",
-        "name": "useState Hook",
-        "description": "Managing component state with useState.",
+        "name": "Limits and Continuity",
+        "description": "Understanding limits and continuous functions.",
         "module": "M102"
       },
       {
         "_id": "L202",
-        "name": "useEffect Hook",
-        "description": "Handling side effects in functional components.",
+        "name": "Derivatives",
+        "description": "Rules and applications of differentiation.",
         "module": "M102"
       },
       {
         "_id": "L203",
-        "name": "Custom Hooks",
-        "description": "Creating reusable logic with custom hooks.",
+        "name": "Integration",
+        "description": "Techniques and applications of integration.",
         "module": "M102"
       }
     ]
   },
   {
     "_id": "M103",
-    "name": "Routing and Deployment",
-    "description": "Navigation and deploying React applications.",
-    "course": "CS101",
+    "name": "Applied Mathematics",
+    "description": "Real-world applications of mathematical concepts.",
+    "course": "RS101",
     "lessons": [
       {
         "_id": "L301",
-        "name": "React Router",
-        "description": "Implementing client-side routing.",
+        "name": "Statistics and Probability",
+        "description": "Fundamentals of statistical reasoning.",
         "module": "M103"
       },
       {
         "_id": "L302",
-        "name": "Protected Routes",
-        "description": "Securing routes and managing authentication.",
+        "name": "Linear Algebra",
+        "description": "Vectors, matrices, and transformations.",
         "module": "M103"
       },
       {
         "_id": "L303",
-        "name": "Deployment Basics",
-        "description": "Deploying React apps to production.",
+        "name": "Mathematical Modeling",
+        "description": "Building models to solve real-world problems.",
         "module": "M103"
       }
     ]
   },
+
   {
     "_id": "M201",
-    "name": "HTML and CSS Foundations",
-    "description": "Core building blocks of the web.",
-    "course": "CS102",
+    "name": "Classical Mechanics",
+    "description": "Foundations of motion and forces.",
+    "course": "RS102",
     "lessons": [
       {
         "_id": "L401",
-        "name": "HTML Structure",
-        "description": "Understanding semantic HTML elements.",
+        "name": "Newton's Laws",
+        "description": "Understanding the three laws of motion.",
         "module": "M201"
       },
       {
         "_id": "L402",
-        "name": "CSS Styling",
-        "description": "Styling web pages with CSS.",
+        "name": "Work and Energy",
+        "description": "Energy conservation and work-energy theorem.",
         "module": "M201"
       },
       {
         "_id": "L403",
-        "name": "Responsive Design",
-        "description": "Creating layouts that adapt to different screen sizes.",
+        "name": "Momentum and Collisions",
+        "description": "Linear momentum and collision analysis.",
         "module": "M201"
       }
     ]
   },
   {
     "_id": "M202",
-    "name": "JavaScript Essentials",
-    "description": "Programming fundamentals for the web.",
-    "course": "CS102",
+    "name": "Thermodynamics",
+    "description": "Heat, energy, and the laws of thermodynamics.",
+    "course": "RS102",
     "lessons": [
       {
         "_id": "L501",
-        "name": "Variables and Functions",
-        "description": "Declaring variables and writing functions.",
+        "name": "Temperature and Heat",
+        "description": "Concepts of thermal energy and heat transfer.",
         "module": "M202"
       },
       {
         "_id": "L502",
-        "name": "Arrays and Objects",
-        "description": "Working with complex data structures.",
+        "name": "Laws of Thermodynamics",
+        "description": "The four laws governing energy systems.",
         "module": "M202"
       },
       {
         "_id": "L503",
-        "name": "DOM Manipulation",
-        "description": "Interacting with the Document Object Model.",
+        "name": "Entropy and Disorder",
+        "description": "Understanding entropy in physical systems.",
         "module": "M202"
       }
     ]
   },
   {
     "_id": "M203",
-    "name": "Full Stack Basics",
-    "description": "Introduction to backend and API integration.",
-    "course": "CS102",
+    "name": "Electromagnetism",
+    "description": "Electric and magnetic field interactions.",
+    "course": "RS102",
     "lessons": [
       {
         "_id": "L601",
-        "name": "REST APIs",
-        "description": "Understanding RESTful services.",
+        "name": "Electric Fields",
+        "description": "Coulomb's law and electric field concepts.",
         "module": "M203"
       },
       {
         "_id": "L602",
-        "name": "Node.js Basics",
-        "description": "Server-side JavaScript fundamentals.",
+        "name": "Magnetic Fields",
+        "description": "Properties and sources of magnetic fields.",
         "module": "M203"
       },
       {
         "_id": "L603",
-        "name": "Connecting Frontend to Backend",
-        "description": "Fetching and displaying API data.",
+        "name": "Electromagnetic Induction",
+        "description": "Faraday's law and applications.",
         "module": "M203"
       }
     ]
   },
+
   {
     "_id": "M301",
-    "name": "Data Science Foundations",
-    "description": "Core principles of working with data.",
-    "course": "DS101",
+    "name": "Atomic Structure",
+    "description": "The building blocks of matter.",
+    "course": "RS103",
     "lessons": [
       {
         "_id": "L701",
-        "name": "Data Types and Structures",
-        "description": "Understanding structured and unstructured data.",
+        "name": "The Periodic Table",
+        "description": "Organization and trends in the periodic table.",
         "module": "M301"
       },
       {
         "_id": "L702",
-        "name": "Data Cleaning",
-        "description": "Preparing datasets for analysis.",
+        "name": "Electron Configuration",
+        "description": "How electrons are arranged in atoms.",
         "module": "M301"
       },
       {
         "_id": "L703",
-        "name": "Exploratory Data Analysis",
-        "description": "Analyzing patterns using summary statistics.",
+        "name": "Isotopes and Ions",
+        "description": "Variations in atomic structure.",
         "module": "M301"
       }
     ]
   },
   {
     "_id": "M302",
-    "name": "Data Visualization",
-    "description": "Visualizing data using modern tools.",
-    "course": "DS101",
+    "name": "Chemical Bonding",
+    "description": "How atoms combine to form compounds.",
+    "course": "RS103",
     "lessons": [
       {
         "_id": "L801",
-        "name": "Matplotlib Basics",
-        "description": "Creating charts and graphs with Matplotlib.",
+        "name": "Ionic Bonds",
+        "description": "Formation and properties of ionic compounds.",
         "module": "M302"
       },
       {
         "_id": "L802",
-        "name": "Pandas Integration",
-        "description": "Visualizing data directly from DataFrames.",
+        "name": "Covalent Bonds",
+        "description": "Sharing electrons between atoms.",
         "module": "M302"
       },
       {
         "_id": "L803",
-        "name": "Dashboard Concepts",
-        "description": "Designing interactive data dashboards.",
+        "name": "Molecular Geometry",
+        "description": "Shapes of molecules using VSEPR theory.",
         "module": "M302"
       }
     ]
   },
   {
     "_id": "M303",
-    "name": "Intro to Machine Learning",
-    "description": "Fundamental machine learning techniques.",
-    "course": "DS101",
+    "name": "Organic Chemistry",
+    "description": "Carbon-based compounds and reactions.",
+    "course": "RS103",
     "lessons": [
       {
         "_id": "L901",
-        "name": "Supervised Learning",
-        "description": "Understanding regression and classification.",
+        "name": "Hydrocarbons",
+        "description": "Alkanes, alkenes, and alkynes.",
         "module": "M303"
       },
       {
         "_id": "L902",
-        "name": "Model Evaluation",
-        "description": "Measuring model performance.",
+        "name": "Functional Groups",
+        "description": "Key functional groups in organic molecules.",
         "module": "M303"
       },
       {
         "_id": "L903",
-        "name": "Ethics in Data Science",
-        "description": "Exploring bias and fairness in ML systems.",
+        "name": "Reaction Mechanisms",
+        "description": "Common organic reaction pathways.",
         "module": "M303"
+      }
+    ]
+  },
+
+  {
+    "_id": "M401",
+    "name": "Cell Biology",
+    "description": "Structure and function of cells.",
+    "course": "RS104",
+    "lessons": [
+      {
+        "_id": "L1001",
+        "name": "Cell Structure",
+        "description": "Prokaryotic and eukaryotic cell organization.",
+        "module": "M401"
+      },
+      {
+        "_id": "L1002",
+        "name": "Cell Membrane and Transport",
+        "description": "How cells regulate what enters and exits.",
+        "module": "M401"
+      },
+      {
+        "_id": "L1003",
+        "name": "Cell Division",
+        "description": "Mitosis and meiosis explained.",
+        "module": "M401"
+      }
+    ]
+  },
+  {
+    "_id": "M402",
+    "name": "Genetics",
+    "description": "Heredity and genetic variation.",
+    "course": "RS104",
+    "lessons": [
+      {
+        "_id": "L1101",
+        "name": "Mendelian Genetics",
+        "description": "Laws of inheritance and Punnett squares.",
+        "module": "M402"
+      },
+      {
+        "_id": "L1102",
+        "name": "DNA and RNA",
+        "description": "Structure and function of nucleic acids.",
+        "module": "M402"
+      },
+      {
+        "_id": "L1103",
+        "name": "Mutations and Variation",
+        "description": "Types and effects of genetic mutations.",
+        "module": "M402"
+      }
+    ]
+  },
+  {
+    "_id": "M403",
+    "name": "Evolution and Ecology",
+    "description": "How life changes and interacts with the environment.",
+    "course": "RS104",
+    "lessons": [
+      {
+        "_id": "L1201",
+        "name": "Natural Selection",
+        "description": "Darwin's theory and supporting evidence.",
+        "module": "M403"
+      },
+      {
+        "_id": "L1202",
+        "name": "Ecosystems",
+        "description": "Energy flow and nutrient cycles in ecosystems.",
+        "module": "M403"
+      },
+      {
+        "_id": "L1203",
+        "name": "Biodiversity",
+        "description": "Importance and threats to biological diversity.",
+        "module": "M403"
+      }
+    ]
+  },
+
+  {
+    "_id": "M501",
+    "name": "Ancient History",
+    "description": "Civilizations of the ancient world.",
+    "course": "RS105",
+    "lessons": [
+      {
+        "_id": "L1301",
+        "name": "Mesopotamia and Egypt",
+        "description": "Early river valley civilizations.",
+        "module": "M501"
+      },
+      {
+        "_id": "L1302",
+        "name": "Greece and Rome",
+        "description": "Classical civilizations and their legacy.",
+        "module": "M501"
+      },
+      {
+        "_id": "L1303",
+        "name": "Ancient Asia and the Americas",
+        "description": "Early civilizations beyond the Mediterranean.",
+        "module": "M501"
+      }
+    ]
+  },
+  {
+    "_id": "M502",
+    "name": "Modern World History",
+    "description": "Major events shaping the modern world.",
+    "course": "RS105",
+    "lessons": [
+      {
+        "_id": "L1401",
+        "name": "The World Wars",
+        "description": "Causes and consequences of WWI and WWII.",
+        "module": "M502"
+      },
+      {
+        "_id": "L1402",
+        "name": "The Cold War",
+        "description": "Geopolitical tensions of the 20th century.",
+        "module": "M502"
+      },
+      {
+        "_id": "L1403",
+        "name": "Globalization",
+        "description": "Economic and cultural interconnection of nations.",
+        "module": "M502"
+      }
+    ]
+  },
+  {
+    "_id": "M503",
+    "name": "Historical Research Methods",
+    "description": "How historians analyze and interpret the past.",
+    "course": "RS105",
+    "lessons": [
+      {
+        "_id": "L1501",
+        "name": "Primary vs Secondary Sources",
+        "description": "Identifying and evaluating historical sources.",
+        "module": "M503"
+      },
+      {
+        "_id": "L1502",
+        "name": "Historical Writing",
+        "description": "Constructing arguments from historical evidence.",
+        "module": "M503"
+      },
+      {
+        "_id": "L1503",
+        "name": "Historiography",
+        "description": "How historical interpretations evolve over time.",
+        "module": "M503"
+      }
+    ]
+  },
+
+  {
+    "_id": "M601",
+    "name": "Literary Analysis",
+    "description": "Techniques for analyzing literature.",
+    "course": "RS106",
+    "lessons": [
+      {
+        "_id": "L1601",
+        "name": "Theme and Symbolism",
+        "description": "Identifying deeper meanings in texts.",
+        "module": "M601"
+      },
+      {
+        "_id": "L1602",
+        "name": "Character and Narrative",
+        "description": "Analyzing character development and plot structure.",
+        "module": "M601"
+      },
+      {
+        "_id": "L1603",
+        "name": "Point of View and Voice",
+        "description": "How perspective shapes a literary work.",
+        "module": "M601"
+      }
+    ]
+  },
+  {
+    "_id": "M602",
+    "name": "Poetry and Creative Writing",
+    "description": "Forms and techniques of creative expression.",
+    "course": "RS106",
+    "lessons": [
+      {
+        "_id": "L1701",
+        "name": "Poetic Forms",
+        "description": "Sonnets, haikus, free verse and more.",
+        "module": "M602"
+      },
+      {
+        "_id": "L1702",
+        "name": "Imagery and Metaphor",
+        "description": "Using figurative language effectively.",
+        "module": "M602"
+      },
+      {
+        "_id": "L1703",
+        "name": "Writing Workshop",
+        "description": "Peer review and revision of creative work.",
+        "module": "M602"
+      }
+    ]
+  },
+  {
+    "_id": "M603",
+    "name": "World Literature",
+    "description": "Literature from diverse global traditions.",
+    "course": "RS106",
+    "lessons": [
+      {
+        "_id": "L1801",
+        "name": "African and Latin American Literature",
+        "description": "Exploring postcolonial literary traditions.",
+        "module": "M603"
+      },
+      {
+        "_id": "L1802",
+        "name": "Asian Literary Traditions",
+        "description": "Classic and modern works from Asia.",
+        "module": "M603"
+      },
+      {
+        "_id": "L1803",
+        "name": "Comparative Literature",
+        "description": "Analyzing themes across different cultures.",
+        "module": "M603"
+      }
+    ]
+  },
+
+  {
+    "_id": "M701",
+    "name": "Microeconomics",
+    "description": "Individual and firm-level economic decision making.",
+    "course": "RS107",
+    "lessons": [
+      {
+        "_id": "L1901",
+        "name": "Supply and Demand",
+        "description": "Market equilibrium and price mechanisms.",
+        "module": "M701"
+      },
+      {
+        "_id": "L1902",
+        "name": "Consumer Behavior",
+        "description": "How consumers make purchasing decisions.",
+        "module": "M701"
+      },
+      {
+        "_id": "L1903",
+        "name": "Market Structures",
+        "description": "Competition, monopoly, and oligopoly.",
+        "module": "M701"
+      }
+    ]
+  },
+  {
+    "_id": "M702",
+    "name": "Macroeconomics",
+    "description": "Economy-wide phenomena and policy.",
+    "course": "RS107",
+    "lessons": [
+      {
+        "_id": "L2001",
+        "name": "GDP and Economic Growth",
+        "description": "Measuring and driving national output.",
+        "module": "M702"
+      },
+      {
+        "_id": "L2002",
+        "name": "Inflation and Unemployment",
+        "description": "Causes and effects of major economic indicators.",
+        "module": "M702"
+      },
+      {
+        "_id": "L2003",
+        "name": "Fiscal and Monetary Policy",
+        "description": "Government tools for managing the economy.",
+        "module": "M702"
+      }
+    ]
+  },
+  {
+    "_id": "M703",
+    "name": "International Economics",
+    "description": "Trade and finance in a global economy.",
+    "course": "RS107",
+    "lessons": [
+      {
+        "_id": "L2101",
+        "name": "Comparative Advantage",
+        "description": "Why nations trade and specialize.",
+        "module": "M703"
+      },
+      {
+        "_id": "L2102",
+        "name": "Trade Policy",
+        "description": "Tariffs, quotas, and trade agreements.",
+        "module": "M703"
+      },
+      {
+        "_id": "L2103",
+        "name": "Exchange Rates",
+        "description": "How currency values affect trade.",
+        "module": "M703"
+      }
+    ]
+  },
+
+  {
+    "_id": "M801",
+    "name": "Philosophy of Mind",
+    "description": "Consciousness, identity, and mental states.",
+    "course": "RS108",
+    "lessons": [
+      {
+        "_id": "L2201",
+        "name": "Consciousness and Perception",
+        "description": "Theories of conscious experience.",
+        "module": "M801"
+      },
+      {
+        "_id": "L2202",
+        "name": "Personal Identity",
+        "description": "What makes a person the same over time.",
+        "module": "M801"
+      },
+      {
+        "_id": "L2203",
+        "name": "Mind-Body Problem",
+        "description": "Dualism, physicalism, and their critiques.",
+        "module": "M801"
+      }
+    ]
+  },
+  {
+    "_id": "M802",
+    "name": "Ethics",
+    "description": "Moral theories and their applications.",
+    "course": "RS108",
+    "lessons": [
+      {
+        "_id": "L2301",
+        "name": "Utilitarianism",
+        "description": "The greatest good for the greatest number.",
+        "module": "M802"
+      },
+      {
+        "_id": "L2302",
+        "name": "Kantian Ethics",
+        "description": "Duty, reason, and the categorical imperative.",
+        "module": "M802"
+      },
+      {
+        "_id": "L2303",
+        "name": "Applied Ethics",
+        "description": "Ethical frameworks applied to real-world dilemmas.",
+        "module": "M802"
+      }
+    ]
+  },
+  {
+    "_id": "M803",
+    "name": "Political Philosophy",
+    "description": "Justice, power, and the foundations of society.",
+    "course": "RS108",
+    "lessons": [
+      {
+        "_id": "L2401",
+        "name": "Social Contract Theory",
+        "description": "Hobbes, Locke, and Rousseau on government.",
+        "module": "M803"
+      },
+      {
+        "_id": "L2402",
+        "name": "Justice and Equality",
+        "description": "Rawls and theories of distributive justice.",
+        "module": "M803"
+      },
+      {
+        "_id": "L2403",
+        "name": "Democracy and Liberty",
+        "description": "Foundations of democratic governance.",
+        "module": "M803"
       }
     ]
   }
