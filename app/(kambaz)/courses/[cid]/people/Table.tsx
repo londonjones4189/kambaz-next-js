@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import { FaUserCircle } from "react-icons/fa";
-import PeopleDetails from "../Deatils";
-import * as client from "../../../../account/client";
+import PeopleDetails from "./Deatils";
+import * as client from "../../../account/client";
 import Link from "next/link";
 
 export default function PeopleTable({ users = [], fetchUsers }: { users?: any[]; fetchUsers: () => void; }) {
