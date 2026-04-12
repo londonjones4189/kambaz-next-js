@@ -36,18 +36,20 @@ export default function Dashboard() {
       const data = showAll
         ? await client.fetchAllCourses()
         : await client.findMyCourses();
-      dispatch(setCourses(data));
+      dispatch(setCourses(Array.isArray(data) ? data : []));
     } catch (error) {
       console.error(error);
+      dispatch(setCourses([]));
     }
   };
 
   const fetchEnrollments = async () => {
     try {
       const data = await enrollmentsClient.findAllEnrollments();
-      dispatch(setEnrollments(data));
+      dispatch(setEnrollments(Array.isArray(data) ? data : []));
     } catch (error) {
       console.error(error);
+      dispatch(setEnrollments([]));
     }
   };
 
@@ -56,8 +58,11 @@ export default function Dashboard() {
     fetchEnrollments();
   }, [currentUser, showAll]);
 
+  const safeEnrollments = Array.isArray(enrollments) ? enrollments : [];
+  const safeCourses = Array.isArray(courses) ? courses : [];
+
   const isEnrolled = (courseId: string) =>
-    enrollments.some(
+    safeEnrollments.some(
       (e: any) => e.user === currentUser?._id && e.course === courseId
     );
 
@@ -65,9 +70,9 @@ export default function Dashboard() {
     try {
       await client.createCourse(course);
       const updatedCourses = await client.findMyCourses();
-      dispatch(setCourses(updatedCourses));
+      dispatch(setCourses(Array.isArray(updatedCourses) ? updatedCourses : []));
       const data = await enrollmentsClient.findAllEnrollments();
-      dispatch(setEnrollments(data));
+      dispatch(setEnrollments(Array.isArray(data) ? data : []));
     } catch (error: any) {
       console.error("Error adding course:", error.response?.status, error.response?.data);
     }
@@ -75,25 +80,25 @@ export default function Dashboard() {
 
   const onDeleteCourse = async (courseId: string) => {
     await client.deleteCourse(courseId);
-    dispatch(setCourses(courses.filter((c) => c._id !== courseId)));
+    dispatch(setCourses(safeCourses.filter((c) => c._id !== courseId)));
   };
 
   const onUpdateCourse = async () => {
     await client.updateCourse(course);
-    dispatch(setCourses(courses.map((c) => (c._id === course._id ? course : c))));
+    dispatch(setCourses(safeCourses.map((c) => (c._id === course._id ? course : c))));
   };
 
   const onEnroll = async (courseId: string) => {
-  const enrollment = await enrollmentsClient.enrollIntoCourse(currentUser._id, courseId);
-  dispatch(setEnrollments([...enrollments, enrollment]));
-};
+    const enrollment = await enrollmentsClient.enrollIntoCourse(currentUser._id, courseId);
+    dispatch(setEnrollments([...safeEnrollments, enrollment]));
+  };
 
-const onUnenroll = async (courseId: string) => {
-  await enrollmentsClient.unenrollFromCourse(currentUser._id, courseId);
-  dispatch(setEnrollments(
-    enrollments.filter((e: any) => !(e.user === currentUser._id && e.course === courseId))
-  ));
-};
+  const onUnenroll = async (courseId: string) => {
+    await enrollmentsClient.unenrollFromCourse(currentUser._id, courseId);
+    dispatch(setEnrollments(
+      safeEnrollments.filter((e: any) => !(e.user === currentUser._id && e.course === courseId))
+    ));
+  };
 
   return (
     <div id="wd-dashboard">
@@ -144,13 +149,13 @@ const onUnenroll = async (courseId: string) => {
       )}
 
       <h2 id="wd-dashboard-published">
-        {showAll ? "All Courses" : "My Courses"} ({courses.length})
+        {showAll ? "All Courses" : "My Courses"} ({safeCourses.length})
       </h2>
       <hr />
 
       <div id="wd-dashboard-courses">
         <Row xs={1} md={5} className="g-4">
-          {courses.map((c) => {
+          {safeCourses.map((c) => {
             const enrolled = isEnrolled(c._id);
             return (
               <Col key={c._id} className="wd-dashboard-course" style={{ width: "300px" }}>

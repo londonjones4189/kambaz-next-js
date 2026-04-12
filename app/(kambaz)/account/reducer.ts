@@ -1,9 +1,7 @@
-
 import { createSlice } from "@reduxjs/toolkit";
-import { users } from "../database";
 
-const initialState = {
-  currentUser: users[0],
+const initialState: { currentUser: any } = {
+  currentUser: null,
 };
 
 const accountSlice = createSlice({
