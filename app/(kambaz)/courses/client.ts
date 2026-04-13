@@ -1,7 +1,5 @@
 import axios from "axios";
 const axiosWithCredentials = axios.create({ withCredentials: true });
-
-const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
 const USERS_API = `/api/users`;
 const COURSES_API = `/api/courses`;
 const MODULES_API = `/api/modules`;
