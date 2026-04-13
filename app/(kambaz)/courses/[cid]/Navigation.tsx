@@ -11,7 +11,7 @@ export default function CourseNavigation({ courseId }: { courseId: string }) {
       {links.map((link) => (
         <Link
           key={link}
-          href={`/courses/${courseId}/${link === "People" ? "people/Table" : link.toLowerCase()}`}
+          href={`/courses/${courseId}/${link === "People" ? "people" : link.toLowerCase()}`}
           className={`list-group-item border-0 ${
             pathname.includes(link.toLowerCase()) ? "active" : "text-danger"
           }`}
