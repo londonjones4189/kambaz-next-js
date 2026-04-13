@@ -6,4 +6,5 @@ const axiosWithCredentials = axios.create({
     'Pragma': 'no-cache',
   }
 });
-const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
+
+export const USERS_API = `/api/users`;
