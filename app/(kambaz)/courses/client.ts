@@ -2,10 +2,10 @@ import axios from "axios";
 const axiosWithCredentials = axios.create({ withCredentials: true });
 
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
-const USERS_API = `${HTTP_SERVER}/api/users`;
-const COURSES_API = `${HTTP_SERVER}/api/courses`;
-const MODULES_API = `${HTTP_SERVER}/api/modules`;
-const ENROLLMENTS_API = `${HTTP_SERVER}/api/enrollments`;
+const USERS_API = `/api/users`;
+const COURSES_API = `/api/courses`;
+const MODULES_API = `/api/modules`;
+const ENROLLMENTS_API = `/api/enrollments`;
 
 
  
